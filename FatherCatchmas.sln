@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FatherCatchmas", "FatherCatchmas\FatherCatchmas.csproj", "{67ED7A73-6C4A-4C5F-ADF8-8F1190EB1044}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67ED7A73-6C4A-4C5F-ADF8-8F1190EB1044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67ED7A73-6C4A-4C5F-ADF8-8F1190EB1044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67ED7A73-6C4A-4C5F-ADF8-8F1190EB1044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67ED7A73-6C4A-4C5F-ADF8-8F1190EB1044}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = FatherCatchmas\FatherCatchmas.csproj
+	EndGlobalSection
+EndGlobal
