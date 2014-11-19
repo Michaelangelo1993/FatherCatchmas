@@ -12,7 +12,7 @@ namespace FatherCatchmas
 	{	
 		//Private variables.
 		private SpriteUV 	sprite;
-		//private TextureInfo	textureInfo;
+		private TextureInfo	textureInfo;
 		private float		width;
 		
 		//Public functions.
@@ -20,10 +20,10 @@ namespace FatherCatchmas
 		{
 			sprite	= new SpriteUV();
 			
-			//textureInfo  	= new TextureInfo("/Application/textures/background.png");
+			textureInfo  	= new TextureInfo("/Application/textures/background.png");
 			
-			//sprite 			= new SpriteUV(textureInfo);
-			//sprite.Quad.S 	= textureInfo.TextureSizef;
+			sprite 			= new SpriteUV(textureInfo);
+			sprite.Quad.S 	= textureInfo.TextureSizef;
 			
 			//Get sprite bounds.
 			Bounds2 b = sprite.Quad.Bounds2();
@@ -38,7 +38,7 @@ namespace FatherCatchmas
 		
 		public void Dispose()
 		{
-			//textureInfo.Dispose();
+			textureInfo.Dispose();
 		}
 		
 		public void Update(float deltaTime)
