@@ -18,6 +18,7 @@ namespace FatherCatchmas
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
 		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
 		
+		private static Player 		player;
 		private static Background	background;
 		
 		public static void Main (string[] args)
@@ -72,6 +73,9 @@ namespace FatherCatchmas
 			//Create the background.
 			background = new Background(gameScene);
 			
+			//Create the player
+			player = new Player(gameScene);
+			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 		}
@@ -79,10 +83,12 @@ namespace FatherCatchmas
 		public static void Update ()
 		{
 			// Query gamepad for current state
-			var gamePadData = GamePad.GetData (0);
+			var gamePadData = GamePad.GetData(0);
 			
 			//Determine whether the player tapped the screen
 			var touches = Touch.GetData(0);
+			var x = Input2.Touch00.Pos.X;
+			player.Update(0.0f, x);
 		}
 	}
 }
