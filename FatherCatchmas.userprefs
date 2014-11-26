@@ -3,10 +3,10 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="FatherCatchmas\Background.cs">
     <Files>
       <File FileName="FatherCatchmas\app.xml" Line="11" Column="1" />
-      <File FileName="FatherCatchmas\AppMain.cs" Line="22" Column="3" />
-      <File FileName="FatherCatchmas\Background.cs" Line="25" Column="31" />
-      <File FileName="FatherCatchmas\Player.cs" Line="15" Column="5" />
-      <File FileName="FatherCatchmas\Obstacle.cs" Line="18" Column="5" />
+      <File FileName="FatherCatchmas\AppMain.cs" Line="50" Column="52" />
+      <File FileName="FatherCatchmas\Background.cs" Line="23" Column="60" />
+      <File FileName="FatherCatchmas\Player.cs" Line="22" Column="1" />
+      <File FileName="FatherCatchmas\Obstacle.cs" Line="47" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

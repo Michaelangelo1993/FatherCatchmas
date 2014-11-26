@@ -58,3 +58,11 @@ E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas
 E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas.psdp
 E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\obj\Debug\convertedpdb\app.exe.mdb
 E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\obj\Debug\app.pdb
+E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\santaSprite.png
+E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\sack.png
+E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\background.png
+E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\santaSprite.png
+E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\sack.png
+E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\background.png
+E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\present.png
+E:\Uni\Year2\Tech games\Group game\Father Catchmas\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\present.png

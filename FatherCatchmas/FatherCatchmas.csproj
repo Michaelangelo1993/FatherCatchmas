@@ -41,7 +41,7 @@
     <Compile Include="AppMain.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="Obstacle.cs" />
+    <Compile Include="Object.cs" />
   </ItemGroup>
   <ItemGroup>
     <ShaderProgram Include="shaders\Simple.fcg" />
@@ -55,6 +55,9 @@
     <Folder Include="textures\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="textures\Background.png" />
+    <Content Include="textures\background.png" />
+    <Content Include="textures\santaSprite.png" />
+    <Content Include="textures\sack.png" />
+    <Content Include="textures\present.png" />
   </ItemGroup>
 </Project>

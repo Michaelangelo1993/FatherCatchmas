@@ -12,7 +12,7 @@ namespace FatherCatchmas
 	{
 		//Private variables.
 		private static SpriteUV 	sprite;
-		//private static TextureInfo	textureInfo;
+		private static TextureInfo	textureInfo;
 		
 		
 		//Accessors.
@@ -21,11 +21,11 @@ namespace FatherCatchmas
 		//Public functions.
 		public Player (Scene scene)
 		{
-			//textureInfo  = new TextureInfo("/Application/textures/player.png");
+			textureInfo  = new TextureInfo("/Application/textures/sack.png");
 			
 			sprite	 		= new SpriteUV();
-			//sprite 			= new SpriteUV(textureInfo);	
-			//sprite.Quad.S 	= textureInfo.TextureSizef;
+			sprite 			= new SpriteUV(textureInfo);	
+			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(50.0f,Director.Instance.GL.Context.GetViewport().Height*0.5f);
 			
 			//Add to the current scene.
@@ -34,7 +34,7 @@ namespace FatherCatchmas
 		
 		public void Dispose()
 		{
-			//textureInfo.Dispose();
+			textureInfo.Dispose();
 		}
 		
 		public void Update(float deltaTime)
