@@ -15,6 +15,8 @@ namespace FatherCatchmas
 		private static SpriteUV		santaSprite;
 		private static TextureInfo	textureInfoSack;
 		private static TextureInfo	textureInfoSanta;
+		private static Vector2		min, max;
+		private static Bounds2		box;
 		
 		
 		//Accessors.
@@ -48,7 +50,7 @@ namespace FatherCatchmas
 		}
 		
 		public void Update(float deltaTime, float x)
-		{	
+		{				
 			x = (x * (Director.Instance.GL.Context.GetViewport().Width / 2))
 					+ (Director.Instance.GL.Context.GetViewport().Width / 2)
 					- (textureInfoSack.TextureSizef.X / 2);
@@ -66,11 +68,29 @@ namespace FatherCatchmas
 				sackSprite.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width - textureInfoSack.TextureSizef.X, 0.0f);
 				santaSprite.Position = new Vector2(sackSprite.Position.X,sackSprite.Position.Y);
 			}
+			
+			min.X		= sackSprite.Position.X;
+			min.Y		= sackSprite.Position.Y;
+			max.X		= sackSprite.Position.X + (textureInfoSack.TextureSizef.X);
+			max.Y		= sackSprite.Position.Y + (textureInfoSack.TextureSizef.Y);
+			box.Min 	= min;			
+			box.Max 	= max;
 		}	
 		
 		public void Tapped()
 		{
 			
+		}
+		
+		public Vector2 Pos()
+		{
+			Vector2 pos = new Vector2(sprite.Position.X, sprite.Position.Y);
+			return pos;
+		}
+		
+		public Bounds2 GetBox()
+		{	
+			return box;
 		}
 	}
 }
