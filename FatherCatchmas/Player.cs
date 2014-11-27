@@ -84,7 +84,7 @@ namespace FatherCatchmas
 		
 		public Vector2 Pos()
 		{
-			Vector2 pos = new Vector2(sprite.Position.X, sprite.Position.Y);
+			Vector2 pos = new Vector2(sackSprite.Position.X, sackSprite.Position.Y);
 			return pos;
 		}
 		
