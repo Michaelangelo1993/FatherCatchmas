@@ -20,6 +20,10 @@ namespace FatherCatchmas
 		
 		private static Player 		player;
 		private static Background	background;
+		private static Present[]	presents;
+		
+		public static int score;
+		const int NUMPRESENTS = 9;
 		
 		public static void Main (string[] args)
 		{
@@ -39,6 +43,10 @@ namespace FatherCatchmas
 			}
 			
 			//Call dispose methods
+			foreach(Present present in presents)
+			{
+				present.Dispose();
+			}	
 			
 			Director.Terminate ();
 			
@@ -65,16 +73,30 @@ namespace FatherCatchmas
 			scoreLabel.SetPosition(
 				Director.Instance.GL.Context.GetViewport().Width/2 - scoreLabel.Width/2,
 				Director.Instance.GL.Context.GetViewport().Height*0.1f - scoreLabel.Height/2);
-			scoreLabel.Text = "0";
+			scoreLabel.Text = "Score: " + score;
 			panel.AddChildLast(scoreLabel);
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
+			
+			//Reset score
+			score = 0;
 			
 			//Create the background.
 			background = new Background(gameScene);
 			
 			//Create the player
 			player = new Player(gameScene);
+			
+			
+			//Create presents
+			presents = new Present[NUMPRESENTS];
+
+			
+					
+			for (int i=0; i<NUMPRESENTS; i++)
+			{
+				presents[i] = new Present(gameScene, i);	
+			}
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
@@ -89,6 +111,28 @@ namespace FatherCatchmas
 			var touches = Touch.GetData(0);
 			var x = Input2.Touch00.Pos.X;
 			player.Update(0.0f, x);
+			
+			//Update the presents
+			foreach(Present present in presents)
+			{
+				present.Update(0.0f);
+			}	
+			
+			
+			//Temporary collision 
+			bool collected = false;
+			Bounds2 playerBox = player.GetBox ();
+			
+			foreach(Present present in presents)
+			{
+				collected = present.HasCollidedWith(playerBox);
+				if (collected==true)
+					score++;
+			}	
+			//Score test
+			
+			scoreLabel.Text = "" + score;
+			
 		}
 	}
 }

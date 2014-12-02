@@ -104,3 +104,41 @@ A:\Documents\FatherCatchmas\FatherCatchmas\obj\Debug\shaders\shaders\Simple.cgx
 A:\Documents\FatherCatchmas\FatherCatchmas\obj\Debug\convertedpdb\app.exe.mdb
 A:\Documents\FatherCatchmas\FatherCatchmas\obj\Debug\app.exe
 A:\Documents\FatherCatchmas\FatherCatchmas\obj\Debug\app.pdb
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\app.info
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\shaders\Simple.cgx
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\app.exe
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\System.Json.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\System.Xml.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\System.Runtime.Serialization.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\System.Core.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\System.ServiceModel.Web.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\System.ServiceModel.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\Sce.PlayStation.HighLevel.UI.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\app.exe.mdb
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\background.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\santaSprite.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\sack.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\present.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\app.info
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\shaders\Simple.cgx
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\app.exe
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\Sce.PlayStation.HighLevel.GameEngine2D.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\System.Json.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\System.Xml.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\System.Runtime.Serialization.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\System.Core.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\System.ServiceModel.Web.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\System.ServiceModel.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\Sce.PlayStation.HighLevel.UI.dll
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\app.exe.mdb
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\background.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\santaSprite.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\sack.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\present.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas.psdp
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\FatherCatchmas.csprojResolveAssemblyReference.cache
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\shaders\shaders\Simple.cgx
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\convertedpdb\app.exe.mdb
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\app.exe
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\app.pdb
