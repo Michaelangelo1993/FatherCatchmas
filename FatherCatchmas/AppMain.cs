@@ -90,9 +90,7 @@ namespace FatherCatchmas
 			
 			//Create presents
 			presents = new Present[NUMPRESENTS];
-
-			
-					
+	
 			for (int i=0; i<NUMPRESENTS; i++)
 			{
 				presents[i] = new Present(gameScene, i);	
@@ -112,6 +110,7 @@ namespace FatherCatchmas
 			var x = Input2.Touch00.Pos.X;
 			player.Update(0.0f, x);
 			
+			
 			//Update the presents
 			foreach(Present present in presents)
 			{
@@ -129,8 +128,8 @@ namespace FatherCatchmas
 				if (collected==true)
 					score++;
 			}	
-			//Score test
 			
+			//Score test			
 			scoreLabel.Text = "" + score;
 			
 		}

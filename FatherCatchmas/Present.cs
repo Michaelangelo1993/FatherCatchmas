@@ -10,7 +10,6 @@ namespace FatherCatchmas
 {
 	public class Present
 	{
-		const int numPresents = 20;
 		
 		//Private variables.
 		private SpriteUV 	sprite;
@@ -24,6 +23,7 @@ namespace FatherCatchmas
 		{
 			textureInfo  = new TextureInfo("/Application/textures/present.png");
 			
+			//Create sprite
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
@@ -44,11 +44,14 @@ namespace FatherCatchmas
 		
 		public void Update(float deltaTime)
 		{			
+			//Make the presents fall
 			sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-2f);
 			
+			//Reset the position once the ground is hit
 			if(sprite.Position.Y <0)
 				sprite.Position = new Vector2(sprite.Position.X, Director.Instance.GL.Context.GetViewport().Height+RandomPosition(1));
 			
+			//Assign bounding box values
 			min.X		= sprite.Position.X;
 			min.Y		= sprite.Position.Y;
 			max.X		= sprite.Position.X + (textureInfo.TextureSizef.X);
