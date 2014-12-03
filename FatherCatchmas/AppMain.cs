@@ -84,10 +84,6 @@ namespace FatherCatchmas
 			//Create the background.
 			background = new Background(gameScene);
 			
-			//Create the player
-			player = new Player(gameScene);
-			
-			
 			//Create presents
 			presents = new Present[NUMPRESENTS];
 	
@@ -96,20 +92,24 @@ namespace FatherCatchmas
 				presents[i] = new Present(gameScene, i);	
 			}
 			
+			
+			//Create the player
+			player = new Player(gameScene);
+			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 		}
 
 		public static void Update ()
 		{
+			
+			
 			// Query gamepad for current state
 			var gamePadData = GamePad.GetData(0);
 			
 			//Determine whether the player tapped the screen
 			var touches = Touch.GetData(0);
 			var x = Input2.Touch00.Pos.X;
-			player.Update(0.0f, x);
-			
 			
 			//Update the presents
 			foreach(Present present in presents)
@@ -117,21 +117,21 @@ namespace FatherCatchmas
 				present.Update(0.0f);
 			}	
 			
+			player.Update(0.0f, x);
 			
-			//Temporary collision 
-			bool collected = false;
-			Bounds2 playerBox = player.GetBox ();
+			HasCollided();
+
+		}
+		
+		public static void HasCollided()
+		{
 			
 			foreach(Present present in presents)
 			{
-				collected = present.HasCollidedWith(playerBox);
-				if (collected==true)
-					score++;
-			}	
-			
-			//Score test			
-			scoreLabel.Text = "" + score;
-			
+				if (player.GetBox().Overlaps(present.GetBox()))
+					score++;	
+			}
+			scoreLabel.Text = "Score: " + score;
 		}
 	}
 }

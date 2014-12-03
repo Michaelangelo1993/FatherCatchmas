@@ -18,6 +18,8 @@ namespace FatherCatchmas
 		private static Vector2		min, max;
 		private static Bounds2		preBox;
 		
+		const float SPEED = 2.0f;
+		
 		//Public functions.
 		public Present (Scene scene, int seed)
 		{
@@ -28,9 +30,6 @@ namespace FatherCatchmas
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(RandomPosition(seed), Director.Instance.GL.Context.GetViewport().Height+RandomPosition(seed));
-
-			
-			//viewHeight = Director.Instance.GL.Context.GetViewport().Height;
 
 			
 			//Add to the current scene.
@@ -45,7 +44,7 @@ namespace FatherCatchmas
 		public void Update(float deltaTime)
 		{			
 			//Make the presents fall
-			sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-2f);
+			sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-SPEED);
 			
 			//Reset the position once the ground is hit
 			if(sprite.Position.Y <0)
@@ -74,6 +73,17 @@ namespace FatherCatchmas
 			//Collision calculations go here
 			
 			return false;
+		}
+		
+		public Vector2 Pos()
+		{
+			Vector2 pos = new Vector2(sprite.Position.X, sprite.Position.Y);
+			return pos;
+		}
+		
+		public Bounds2 GetBox()
+		{	
+			return preBox;
 		}
 	}
 }
