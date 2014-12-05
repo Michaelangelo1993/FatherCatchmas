@@ -29,7 +29,7 @@ namespace FatherCatchmas
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
-			sprite.Position = new Vector2(RandomPosition(seed), Director.Instance.GL.Context.GetViewport().Height+RandomPosition(seed));
+			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width), GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
 
 			
 			//Add to the current scene.
@@ -59,18 +59,30 @@ namespace FatherCatchmas
 			preBox.Max 	= max;
 		}
 		
+		//Function to get random number
+		private static readonly Random getrandom = new Random();
+		private static readonly object syncLock = new object();
+		public static int GetRandomNumber(int min, int max)
+		{
+    		lock(syncLock)
+			{ // synchronize
+        		return getrandom .Next(min, max);
+    		}
+		}
+		
 		private float RandomPosition(int seed)
 		{
 			//Create a random float
-			Random rnd = new Random(seed); 
-			float randomPos = (float)rnd.Next(0, Director.Instance.GL.Context.GetViewport().Width);
+			Random rnd = new Random(); 
+			
+        	float randomPos = (float)rnd.Next(Director.Instance.GL.Context.GetViewport().Width);	
 		
 			return randomPos;
 		}
 		
 		public bool HasCollidedWith(Bounds2 box)
 		{			
-			//Collision calculations go here
+			//Old collision method
 			
 			return false;
 		}
