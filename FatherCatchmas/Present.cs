@@ -18,7 +18,7 @@ namespace FatherCatchmas
 		private static Vector2		min, max;
 		private static Bounds2		preBox;
 		
-		private float speed = 0.5f;
+		const float SPEED = 2.0f;
 		
 		//Public functions.
 		public Present (Scene scene, int seed)
@@ -43,14 +43,11 @@ namespace FatherCatchmas
 		public void Update(float deltaTime)
 		{			
 			//Make the presents fall
-			sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-speed);
+			sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-SPEED);
 			
 			//Reset the position once the ground is hit
 			if(sprite.Position.Y <0)
-			{
 				ResetPosition();
-				AppMain.UpdateLives();
-			}
 		
 			//Assign bounding box values
 			min.X		= sprite.Position.X;
@@ -59,26 +56,6 @@ namespace FatherCatchmas
 			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
 			preBox.Min 	= min;			
 			preBox.Max 	= max;
-			
-			UpdateSpeed ();
-		}
-		
-		public void UpdateSpeed()
-		{
-			int currentScore = AppMain.GetScore();
-			if(currentScore<10)
-			{
-				speed = 1.0f;
-			}
-			else if (currentScore<20)
-			{
-				speed = 1.5f;
-			}
-			else if (currentScore<30)
-			{
-				speed = 2.0f;
-			}
-			       
 		}
 		
 		//Function to get random number
@@ -92,7 +69,7 @@ namespace FatherCatchmas
     		}
 		}
 		
-		private float RandomPosition()
+		private float RandomPosition(int seed)
 		{
 			//Create a random float
 			Random rnd = new Random(); 
@@ -104,7 +81,7 @@ namespace FatherCatchmas
 	
 		public void ResetPosition()
 		{
-			sprite.Position = new Vector2(sprite.Position.X, Director.Instance.GL.Context.GetViewport().Height+RandomPosition());
+			sprite.Position = new Vector2(sprite.Position.X, Director.Instance.GL.Context.GetViewport().Height+RandomPosition(1));
 		}
 		
 		public Vector2 Pos()

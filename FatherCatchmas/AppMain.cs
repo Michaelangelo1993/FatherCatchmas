@@ -17,25 +17,22 @@ namespace FatherCatchmas
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Scene 	gameScene;
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
 		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
-		private static Sce.PlayStation.HighLevel.UI.Label				livesLabel;
 		
 		private static Player 		player;
 		private static Background	background;
 		private static Present[]	presents;
 		
 		public static int score;
-		public static int lives;
 		const int NUMPRESENTS = 9;
 		
 		public static void Main (string[] args)
 		{
 			Initialize ();
-			
+
 			bool quitGame = false;
 			while (!quitGame) 
 			{
-				if(lives>0)
-					Update ();
+				Update ();
 				
 				Director.Instance.Update();
 				Director.Instance.Render();
@@ -70,14 +67,6 @@ namespace FatherCatchmas
 			Panel panel  = new Panel();
 			panel.Width  = Director.Instance.GL.Context.GetViewport().Width;
 			panel.Height = Director.Instance.GL.Context.GetViewport().Height;
-			
-			//Reset score
-			score = 0;
-			
-			//Reset lives
-			lives = 10;
-			
-			//Score label
 			scoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
 			scoreLabel.HorizontalAlignment = HorizontalAlignment.Center;
 			scoreLabel.VerticalAlignment = VerticalAlignment.Top;
@@ -86,22 +75,11 @@ namespace FatherCatchmas
 				Director.Instance.GL.Context.GetViewport().Height*0.1f - scoreLabel.Height/2);
 			scoreLabel.Text = "Score: " + score;
 			panel.AddChildLast(scoreLabel);
-			
-
-			//Lives label
-			livesLabel = new Sce.PlayStation.HighLevel.UI.Label();
-			livesLabel.HorizontalAlignment = HorizontalAlignment.Right;
-			livesLabel.VerticalAlignment = VerticalAlignment.Top;
-			livesLabel.SetPosition(
-				Director.Instance.GL.Context.GetViewport().Width/4 - livesLabel.Width/2,
-				Director.Instance.GL.Context.GetViewport().Height*0.1f - livesLabel.Height/2);
-			livesLabel.Text = "Lives: " + lives;
-			panel.AddChildLast(livesLabel);
-			
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
 			
-			
+			//Reset score
+			score = 0;
 			
 			//Create the background.
 			background = new Background(gameScene);
@@ -123,7 +101,8 @@ namespace FatherCatchmas
 		}
 
 		public static void Update ()
-		{	
+		{
+			
 			
 			// Query gamepad for current state
 			var gamePadData = GamePad.GetData(0);
@@ -140,19 +119,9 @@ namespace FatherCatchmas
 			}	
 			
 			player.Update(0.0f, x);
-						
+			
+			
 
-		}
-					
-		public static void UpdateLives()
-		{
-			lives--;
-			livesLabel.Text = "Lives: " + lives;
-		}
-		
-		public static int GetScore()
-		{
-			return score;
 		}
 		
 		public static void isColliding(Present present)
