@@ -58,7 +58,7 @@ namespace FatherCatchmas
 			max.X		= sprite.Position.X + (textureInfo.TextureSizef.X);
 			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
 			preBox.Min 	= min;			
-			preBox.Max 	= max;
+			preBox.Max 	= max;		
 			
 			UpdateSpeed ();
 		}
@@ -83,6 +83,10 @@ namespace FatherCatchmas
 				speed = 2.5f;
 			}
 			else if (currentScore<50)
+			{
+				speed = 3.0f;
+			}
+			else if (currentScore<60)
 			{
 				speed = 3.0f;
 			}
