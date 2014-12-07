@@ -17,7 +17,7 @@ namespace FatherCatchmas
 		private static TextureInfo	textureInfoSanta;
 		private static Vector2		min, max;
 		private static Bounds2		box;
-		
+		int							lives;
 		
 		//Accessors.
 		//public SpriteUV Sprite { get{return sprite;} }
@@ -25,6 +25,8 @@ namespace FatherCatchmas
 		//Public functions.
 		public Player (Scene scene)
 		{
+			lives = 10;
+			
 			textureInfoSack  = new TextureInfo("/Application/textures/sack.png");
 			textureInfoSanta  = new TextureInfo("/Application/textures/santaSprite.png");
 			
@@ -75,7 +77,7 @@ namespace FatherCatchmas
 			max.Y		= sackSprite.Position.Y + (textureInfoSack.TextureSizef.Y);
 			box.Min 	= min;			
 			box.Max 	= max;
-		}	
+		}
 		
 		public void Tapped()
 		{
