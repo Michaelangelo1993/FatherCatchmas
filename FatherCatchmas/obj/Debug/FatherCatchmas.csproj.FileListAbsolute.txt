@@ -142,3 +142,7 @@ E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\shaders\shaders\
 E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\convertedpdb\app.exe.mdb
 E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\app.exe
 E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\obj\Debug\app.pdb
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\backgroundnosnow.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\backgroundnosnow.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\snow3.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\snow3.png

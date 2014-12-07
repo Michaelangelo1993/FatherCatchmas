@@ -130,6 +130,9 @@ namespace FatherCatchmas
 			var touches = Touch.GetData(0);
 			var x = Input2.Touch00.Pos.X;
 			
+			//Background animation
+			background.Update(0.0f);
+			
 			//Update the presents
 			foreach(Present present in presents)
 			{
