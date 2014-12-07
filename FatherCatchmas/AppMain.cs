@@ -22,6 +22,7 @@ namespace FatherCatchmas
 		private static Background	background;
 		private static Present[]	presents;
 		
+		
 		public static int score;
 		const int NUMPRESENTS = 9;
 		
@@ -111,25 +112,31 @@ namespace FatherCatchmas
 			var touches = Touch.GetData(0);
 			var x = Input2.Touch00.Pos.X;
 			
+			
 			//Update the presents
 			foreach(Present present in presents)
 			{
-				present.Update(0.0f);
+				Vector2 playerPos = player.Pos();
+				Vector2 presentPos = present.Pos();
+				float posX = presentPos.X - playerPos.X;
+				present.Update(0.0f, posX);
 				isColliding(present);
 			}	
 			
 			player.Update(0.0f, x);
-			
-			
 
 		}
 		
 		public static void isColliding(Present present)
 		{
+			if (player.GetBox().Overlaps(present.GetBox2()))
+			{
+				present.ResetPosition();
+				score++;
+			}
 			if (player.GetBox().Overlaps(present.GetBox()))
 			{
-				score++;
-				present.ResetPosition();
+				
 			}
 			scoreLabel.Text = "Score: " + score;
 		}

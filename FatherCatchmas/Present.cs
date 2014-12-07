@@ -15,8 +15,9 @@ namespace FatherCatchmas
 		private SpriteUV 	sprite;
 		private TextureInfo	textureInfo;
 		
-		private static Vector2		min, max;
-		private static Bounds2		preBox;
+		private static Vector2		min, max, min2, max2;
+		private static Bounds2		preBox, preBox2;
+		private static bool			hasCollided;
 		
 		const float SPEED = 2.0f;
 		
@@ -31,6 +32,8 @@ namespace FatherCatchmas
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width), GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
 			
+			hasCollided = false;
+			
 			//Add to the current scene.
 			scene.AddChild(sprite);
 		}
@@ -40,7 +43,7 @@ namespace FatherCatchmas
 			textureInfo.Dispose();
 		}
 		
-		public void Update(float deltaTime)
+		public void Update(float deltaTime, float x)
 		{			
 			//Make the presents fall
 			sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-SPEED);
@@ -56,6 +59,13 @@ namespace FatherCatchmas
 			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
 			preBox.Min 	= min;			
 			preBox.Max 	= max;
+			
+			min2.X		= sprite.Position.X;
+			min2.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
+			max2.X		= sprite.Position.X + (textureInfo.TextureSizef.X);
+			max2.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);;
+			preBox2.Min 	= min2;			
+			preBox2.Max 	= max2;
 		}
 		
 		//Function to get random number
@@ -84,6 +94,16 @@ namespace FatherCatchmas
 			sprite.Position = new Vector2(sprite.Position.X, Director.Instance.GL.Context.GetViewport().Height+RandomPosition(1));
 		}
 		
+		public void IsColliing()
+		{	
+			hasCollided = true;
+		}
+		
+		public void IsntColliing()
+		{	
+			hasCollided = false;
+		}
+		
 		public Vector2 Pos()
 		{
 			Vector2 pos = new Vector2(sprite.Position.X, sprite.Position.Y);
@@ -93,6 +113,11 @@ namespace FatherCatchmas
 		public Bounds2 GetBox()
 		{	
 			return preBox;
+		}
+		
+		public Bounds2 GetBox2()
+		{	
+			return preBox2;
 		}
 	}
 }
