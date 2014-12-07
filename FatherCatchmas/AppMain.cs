@@ -115,21 +115,21 @@ namespace FatherCatchmas
 			foreach(Present present in presents)
 			{
 				present.Update(0.0f);
+				isColliding(present);
 			}	
 			
 			player.Update(0.0f, x);
 			
-			HasCollided();
+			
 
 		}
 		
-		public static void HasCollided()
+		public static void isColliding(Present present)
 		{
-			
-			foreach(Present present in presents)
+			if (player.GetBox().Overlaps(present.GetBox()))
 			{
-				if (player.GetBox().Overlaps(present.GetBox()))
-					score++;	
+				score++;
+				present.ResetPosition();
 			}
 			scoreLabel.Text = "Score: " + score;
 		}

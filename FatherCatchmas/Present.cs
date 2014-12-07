@@ -30,7 +30,6 @@ namespace FatherCatchmas
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width), GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
-
 			
 			//Add to the current scene.
 			scene.AddChild(sprite);
@@ -48,8 +47,8 @@ namespace FatherCatchmas
 			
 			//Reset the position once the ground is hit
 			if(sprite.Position.Y <0)
-				sprite.Position = new Vector2(sprite.Position.X, Director.Instance.GL.Context.GetViewport().Height+RandomPosition(1));
-			
+				ResetPosition();
+		
 			//Assign bounding box values
 			min.X		= sprite.Position.X;
 			min.Y		= sprite.Position.Y;
@@ -79,12 +78,10 @@ namespace FatherCatchmas
 		
 			return randomPos;
 		}
-		
-		public bool HasCollidedWith(Bounds2 box)
-		{			
-			//Old collision method
-			
-			return false;
+	
+		public void ResetPosition()
+		{
+			sprite.Position = new Vector2(sprite.Position.X, Director.Instance.GL.Context.GetViewport().Height+RandomPosition(1));
 		}
 		
 		public Vector2 Pos()
