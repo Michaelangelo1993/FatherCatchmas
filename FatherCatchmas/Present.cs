@@ -17,6 +17,7 @@ namespace FatherCatchmas
 		
 		private static Vector2		min, max;
 		private static Bounds2		box, topBox;
+		private static float 		rotation;
 		
 		private float speed = 2.0f;
 		
@@ -30,6 +31,8 @@ namespace FatherCatchmas
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width), GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
+			
+			rotation = 0.0f;
 			
 			//Add to the current scene.
 			scene.AddChild(sprite);
@@ -69,6 +72,8 @@ namespace FatherCatchmas
 			topBox.Max 	= max;	
 			
 			UpdateSpeed ();
+			
+			sprite.Rotate(rotation);
 		}
 		
 		public void UpdateSpeed()
@@ -116,8 +121,11 @@ namespace FatherCatchmas
 			//Create a random float
 			Random rnd = new Random(); 
 			
-        	float randomPos = (float)rnd.Next(Director.Instance.GL.Context.GetViewport().Width);	
-		
+        	float randomPos = (float)rnd.Next(Director.Instance.GL.Context.GetViewport().Width - (int)(textureInfo.TextureSizef.X * 1.5));	
+			
+			if (randomPos < (textureInfo.TextureSizef.X * 1.5f))
+				randomPos = (textureInfo.TextureSizef.X * 1.5f);
+			
 			return randomPos;
 		}
 	
@@ -134,6 +142,11 @@ namespace FatherCatchmas
 		public float GetXPos()
 		{
 			return sprite.Position.X;
+		}
+		
+		public void SetRotation(float r)
+		{
+			rotation = r;
 		}
 		
 		public Bounds2 GetBox()
