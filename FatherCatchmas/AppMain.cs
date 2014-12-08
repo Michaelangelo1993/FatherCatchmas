@@ -163,11 +163,13 @@ namespace FatherCatchmas
 			{
 				present.SetXPos(player.GetXPos());
 			}
+			
 			if (player.GetBox().Overlaps(present.GetTopBox()))
 			{
 				score++;
 				present.ResetPosition();
 			}
+			
 			scoreLabel.Text = "Score: " + score;
 		}
 	}

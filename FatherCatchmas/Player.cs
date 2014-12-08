@@ -69,24 +69,24 @@ namespace FatherCatchmas
 				santaSprite.Position = new Vector2(sackSprite.Position.X,sackSprite.Position.Y);
 			}
 			
-			min.X		= sackSprite.Position.X;
-			min.Y		= sackSprite.Position.Y;
-			max.X		= sackSprite.Position.X + (textureInfoSack.TextureSizef.X);
-			max.Y		= sackSprite.Position.Y + (textureInfoSack.TextureSizef.Y);
-			box.Min 	= min;			
-			box.Max 	= max;
+			min.X			= sackSprite.Position.X;
+			min.Y			= sackSprite.Position.Y;
+			max.X			= sackSprite.Position.X + (textureInfoSack.TextureSizef.X);
+			max.Y			= sackSprite.Position.Y + (textureInfoSack.TextureSizef.Y);
+			box.Min 		= min;			
+			box.Max 		= max;
 			
-			min.X		= sackSprite.Position.X;
-			min.Y		= sackSprite.Position.Y;
-			max.X		= sackSprite.Position.X;
-			max.Y		= sackSprite.Position.Y + (textureInfoSack.TextureSizef.Y);
+			min.X			= sackSprite.Position.X - 1;
+			min.Y			= sackSprite.Position.Y;
+			max.X			= sackSprite.Position.X - 1;
+			max.Y			= sackSprite.Position.Y + (textureInfoSack.TextureSizef.Y) + 5;
 			leftBox.Min 	= min;			
 			leftBox.Max 	= max;
 			
-			min.X		= sackSprite.Position.X + (textureInfoSack.TextureSizef.X);
-			min.Y		= sackSprite.Position.Y;
-			max.X		= sackSprite.Position.X + (textureInfoSack.TextureSizef.X);
-			max.Y		= sackSprite.Position.Y + (textureInfoSack.TextureSizef.Y);
+			min.X			= sackSprite.Position.X + (textureInfoSack.TextureSizef.X) + 1;
+			min.Y			= sackSprite.Position.Y;
+			max.X			= sackSprite.Position.X + (textureInfoSack.TextureSizef.X) + 1;
+			max.Y			= sackSprite.Position.Y + (textureInfoSack.TextureSizef.Y) + 5;
 			rightBox.Min 	= min;			
 			rightBox.Max 	= max;
 		}	
