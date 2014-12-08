@@ -20,6 +20,7 @@ namespace FatherCatchmas
 		private static Sce.PlayStation.HighLevel.UI.Label				livesLabel;
 		
 		private static Player 		player;
+		private static Santa 		santa;
 		private static Background	background;
 		private static Present[]	presents;
 		
@@ -104,6 +105,8 @@ namespace FatherCatchmas
 			//Create the background.
 			background = new Background(gameScene);
 			
+			santa = new Santa(gameScene);
+				
 			//Create presents
 			presents = new Present[NUMPRESENTS];
 	
@@ -143,7 +146,7 @@ namespace FatherCatchmas
 			}	
 			
 			player.Update(0.0f, x);
-			
+			santa.Update(0.0f, player.GetPos());
 		}
 		
 		public static void UpdateLives()

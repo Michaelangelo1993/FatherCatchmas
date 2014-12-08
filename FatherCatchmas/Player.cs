@@ -12,9 +12,7 @@ namespace FatherCatchmas
 	{
 		//Private variables.
 		private static SpriteUV 	sackSprite;
-		private static SpriteUV		santaSprite;
 		private static TextureInfo	textureInfoSack;
-		private static TextureInfo	textureInfoSanta;
 		private static Vector2		min, max;
 		private static Bounds2		box, leftBox, rightBox;
 		private static float		xPos;
@@ -26,27 +24,19 @@ namespace FatherCatchmas
 		public Player (Scene scene)
 		{
 			textureInfoSack  = new TextureInfo("/Application/textures/sack.png");
-			textureInfoSanta  = new TextureInfo("/Application/textures/santaSprite.png");
 			
 			sackSprite	 		= new SpriteUV();
 			sackSprite 			= new SpriteUV(textureInfoSack);	
 			sackSprite.Quad.S 	= textureInfoSack.TextureSizef;
 			sackSprite.Position = new Vector2((Director.Instance.GL.Context.GetViewport().Width / 2) - (textureInfoSack.TextureSizef.X / 2),0.0f);
 			
-			santaSprite	 		= new SpriteUV();
-			santaSprite 		= new SpriteUV(textureInfoSanta);	
-			santaSprite.Quad.S 	= textureInfoSanta.TextureSizef;
-			santaSprite.Position = new Vector2(sackSprite.Position.X,sackSprite.Position.Y);
-			
 			//Add to the current scene.
-			scene.AddChild(santaSprite);
 			scene.AddChild(sackSprite);
 		}
 		
 		public void Dispose()
 		{
 			textureInfoSack.Dispose();
-			textureInfoSanta.Dispose();
 		}
 		
 		public void Update(float deltaTime, float x)
@@ -56,17 +46,14 @@ namespace FatherCatchmas
 					- (textureInfoSack.TextureSizef.X / 2);
 			
 			sackSprite.Position = new Vector2(xPos,sackSprite.Position.Y);
-			santaSprite.Position = new Vector2(sackSprite.Position.X,sackSprite.Position.Y);
 			
 			if(sackSprite.Position.X < 0)
 			{
 				sackSprite.Position = new Vector2(0.0f, 0.0f);
-				santaSprite.Position = new Vector2(sackSprite.Position.X,sackSprite.Position.Y);
 			}
 			else if(sackSprite.Position.X > (Director.Instance.GL.Context.GetViewport().Width - textureInfoSack.TextureSizef.X))
 			{
 				sackSprite.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width - textureInfoSack.TextureSizef.X, 0.0f);
-				santaSprite.Position = new Vector2(sackSprite.Position.X,sackSprite.Position.Y);
 			}
 			
 			min.X			= sackSprite.Position.X;
@@ -96,6 +83,11 @@ namespace FatherCatchmas
 			
 		}
 		
+		public Vector2 GetPos()
+		{
+			return sackSprite.Position;
+		}
+		
 		public float GetXPos()
 		{
 			return xPos;
@@ -116,6 +108,40 @@ namespace FatherCatchmas
 			return rightBox;
 		}
 	}
+}
+
+public class Santa
+{
+	//Private variables.
+	private static SpriteUV		santaSprite;
+	private static TextureInfo	textureInfoSanta;
+	
+	//Accessors.
+	//public SpriteUV Sprite { get{return sprite;} }
+	
+	//Public functions.
+	public Santa (Scene scene)
+	{
+		textureInfoSanta 	 	= new TextureInfo("/Application/textures/santaSprite.png");
+		
+		santaSprite	 			= new SpriteUV();
+		santaSprite 			= new SpriteUV(textureInfoSanta);	
+		santaSprite.Quad.S 		= textureInfoSanta.TextureSizef;
+		santaSprite.Position 	= new Vector2(0.0f, 0.0f);
+		
+		//Add to the current scene.
+		scene.AddChild(santaSprite);
+	}
+	
+	public void Dispose()
+	{
+		textureInfoSanta.Dispose();
+	}
+	
+	public void Update(float deltaTime, Vector2 position)
+	{				
+		santaSprite.Position = new Vector2(position.X,position.Y);
+	}	
 }
 
 
