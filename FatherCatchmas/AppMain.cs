@@ -23,7 +23,7 @@ namespace FatherCatchmas
 		private static Santa 		santa;
 		private static Background	background;
 		private static Present[]	presents;
-		private static LifeSprite[]		life;
+		private static LifeSprite	life;
 		
 		public static int score;
 		public static int lives;
@@ -50,12 +50,12 @@ namespace FatherCatchmas
 			
 			//Call dispose methods
 			foreach(Present present in presents)
-			{
 				present.Dispose();
-			}	
+
 			player.Dispose();
 			background.Dispose();
 			santa.Dispose();
+			life.Dispose();
 			
 			Director.Terminate ();
 			
@@ -123,11 +123,7 @@ namespace FatherCatchmas
 			//Create the player
 			player = new Player(gameScene);
 			
-			life = new LifeSprite[lives];
-			for (int i=0; i<lives; i++)
-			{
-				life[i] = new LifeSprite(gameScene, i);	
-			}
+			life = new LifeSprite(gameScene, lives);
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
@@ -157,13 +153,12 @@ namespace FatherCatchmas
 			
 			player.Update(0.0f, x);
 			santa.Update(0.0f, player.GetPos());
+			life.Update(0.0f, gameScene, lives);
 		}
 		
 		public static void UpdateLives()
 		{
-			life[lives-1].Update(gameScene);
 			lives--;
-			
 			livesLabel.Text = "Lives: " + lives;
 		}
 		

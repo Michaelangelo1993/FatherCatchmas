@@ -147,24 +147,28 @@ public class Santa
 public class LifeSprite
 {
 	//Private variables.
-	private static SpriteUV		sprite;
+	private static SpriteUV[]	sprite;
 	private static TextureInfo	textureInfo;
 	
 	//Accessors.
 	//public SpriteUV Sprite { get{return sprite;} }
 	
 	//Public functions.
-	public LifeSprite (Scene scene, int i)
+	public LifeSprite (Scene scene, int lives)
 	{
 		textureInfo 	= new TextureInfo("/Application/textures/liveSprite.png");
 		
-		sprite	 			= new SpriteUV();
-		sprite 				= new SpriteUV(textureInfo);	
-		sprite.Quad.S 		= textureInfo.TextureSizef;
-		sprite.Position 	= new Vector2(0.0f + (float)(32.0f * i), Director.Instance.GL.Context.GetViewport().Height - 34.0f);
+		sprite	 			= new SpriteUV[lives];
+		for(int i = 0; i < lives; i++)
+		{
+			sprite[i] 				= new SpriteUV(textureInfo);	
+			sprite[i].Quad.S 		= textureInfo.TextureSizef;
+			sprite[i].Position 		= new Vector2(0.0f + (float)(32.0f * i), Director.Instance.GL.Context.GetViewport().Height - 34.0f);
+			
+			//Add to the current scene.
+			scene.AddChild(sprite[i]);
+		}
 		
-		//Add to the current scene.
-		scene.AddChild(sprite);
 	}
 	
 	public void Dispose()
@@ -172,8 +176,10 @@ public class LifeSprite
 		textureInfo.Dispose();
 	}
 	
-	public void Update(Scene scene)
-	{				
-		scene.RemoveChild(sprite, false);
+	public void Update(float deltaTime, Scene scene, int lives)
+	{	
+		if(lives<10)
+			scene.RemoveChild(sprite[lives], false);
 	}	
+
 }
