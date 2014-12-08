@@ -152,3 +152,5 @@ A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Appli
 A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\snow3.png
 A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\liveSprite.png
 A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\liveSprite.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\liveSprite.png
+E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\liveSprite.png

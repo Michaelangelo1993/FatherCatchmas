@@ -60,12 +60,15 @@ namespace FatherCatchmas
 		public void Dispose()
 		{
 			textureInfo.Dispose();
+			textureInfo2.Dispose();
 		}
 		
 		public void Update(float deltaTime)
-		{			
+		{	
+			//Moves the snow overlay so that it's a constant scrolling image
 			snowSprite.Position = new Vector2(snowSprite.Position.X, snowSprite.Position.Y-5.0f);
 			snowSprite2.Position = new Vector2(snowSprite2.Position.X, snowSprite2.Position.Y-5.0f);
+			
 			if(snowSprite.Position.Y < -height2)
 				snowSprite.Position = new Vector2(0.0f, height2);
 			if(snowSprite2.Position.Y < -height2)
