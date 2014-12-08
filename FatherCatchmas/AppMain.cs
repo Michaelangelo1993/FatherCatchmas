@@ -128,6 +128,8 @@ namespace FatherCatchmas
 			
 			//Determine whether the player tapped the screen
 			var touches = Touch.GetData(0);
+			
+			//Get the position of the touch on the screen
 			var x = Input2.Touch00.Pos.X;
 			
 			//Background animation
@@ -142,8 +144,6 @@ namespace FatherCatchmas
 			
 			player.Update(0.0f, x);
 			
-			
-
 		}
 		
 		public static void UpdateLives()
@@ -160,6 +160,10 @@ namespace FatherCatchmas
 		public static void isColliding(Present present)
 		{
 			if (player.GetBox().Overlaps(present.GetBox()))
+			{
+				present.SetXPos(player.GetXPos());
+			}
+			if (player.GetBox().Overlaps(present.GetTopBox()))
 			{
 				score++;
 				present.ResetPosition();

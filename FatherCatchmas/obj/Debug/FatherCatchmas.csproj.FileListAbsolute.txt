@@ -146,3 +146,7 @@ E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-u
 E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\backgroundnosnow.png
 E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\snow3.png
 E:\Uni\Year2\Tech games\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\snow3.png
+A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\backgroundnosnow.png
+A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\snow3.png
+A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\backgroundnosnow.png
+A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\snow3.png

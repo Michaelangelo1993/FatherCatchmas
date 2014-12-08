@@ -16,7 +16,7 @@ namespace FatherCatchmas
 		private TextureInfo	textureInfo;
 		
 		private static Vector2		min, max;
-		private static Bounds2		preBox;
+		private static Bounds2		box, topBox;
 		
 		private float speed = 2.0f;
 		
@@ -52,13 +52,21 @@ namespace FatherCatchmas
 				AppMain.UpdateLives();
 			}
 		
-			//Assign bounding box values
+			//Assign bounding box values - size of the present
 			min.X		= sprite.Position.X;
 			min.Y		= sprite.Position.Y;
 			max.X		= sprite.Position.X + (textureInfo.TextureSizef.X);
 			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
-			preBox.Min 	= min;			
-			preBox.Max 	= max;		
+			box.Min 	= min;			
+			box.Max 	= max;
+			
+			//Assign bounding box values - size of top of the present
+			min.X		= sprite.Position.X;
+			min.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
+			max.X		= sprite.Position.X + (textureInfo.TextureSizef.X);
+			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
+			topBox.Min 	= min;			
+			topBox.Max 	= max;	
 			
 			UpdateSpeed ();
 		}
@@ -118,15 +126,24 @@ namespace FatherCatchmas
 			sprite.Position = new Vector2(sprite.Position.X, Director.Instance.GL.Context.GetViewport().Height+RandomPosition(1));
 		}
 		
-		public Vector2 Pos()
+		public void SetXPos(float x)
 		{
-			Vector2 pos = new Vector2(sprite.Position.X, sprite.Position.Y);
-			return pos;
+			sprite.Position = new Vector2(x + (textureInfo.TextureSizef.X/2), sprite.Position.Y);
+		}
+		
+		public float GetXPos()
+		{
+			return sprite.Position.X;
 		}
 		
 		public Bounds2 GetBox()
 		{	
-			return preBox;
+			return box;
+		}
+		
+		public Bounds2 GetTopBox()
+		{	
+			return topBox;
 		}
 	}
 }
