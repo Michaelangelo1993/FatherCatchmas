@@ -150,3 +150,5 @@ A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\App
 A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\snow3.png
 A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\backgroundnosnow.png
 A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\snow3.png
+A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\textures\liveSprite.png
+A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\textures\liveSprite.png

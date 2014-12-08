@@ -56,10 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\background.png" />
-    <Content Include="textures\santaSprite.png" />
-    <Content Include="textures\sack.png" />
-    <Content Include="textures\present.png" />
     <Content Include="textures\backgroundnosnow.png" />
+    <Content Include="textures\liveSprite.png" />
+    <Content Include="textures\present.png" />
+    <Content Include="textures\sack.png" />
+    <Content Include="textures\santaSprite.png" />
     <Content Include="textures\snow3.png" />
   </ItemGroup>
 </Project>

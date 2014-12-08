@@ -144,4 +144,36 @@ public class Santa
 	}	
 }
 
-
+public class LifeSprite
+{
+	//Private variables.
+	private static SpriteUV		sprite;
+	private static TextureInfo	textureInfo;
+	
+	//Accessors.
+	//public SpriteUV Sprite { get{return sprite;} }
+	
+	//Public functions.
+	public LifeSprite (Scene scene, int i)
+	{
+		textureInfo 	= new TextureInfo("/Application/textures/liveSprite.png");
+		
+		sprite	 			= new SpriteUV();
+		sprite 				= new SpriteUV(textureInfo);	
+		sprite.Quad.S 		= textureInfo.TextureSizef;
+		sprite.Position 	= new Vector2(0.0f + (float)(32.0f * i), Director.Instance.GL.Context.GetViewport().Height - 34.0f);
+		
+		//Add to the current scene.
+		scene.AddChild(sprite);
+	}
+	
+	public void Dispose()
+	{
+		textureInfo.Dispose();
+	}
+	
+	public void Update(Scene scene)
+	{				
+		scene.RemoveChild(sprite, false);
+	}	
+}
