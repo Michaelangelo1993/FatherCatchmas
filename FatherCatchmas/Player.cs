@@ -107,6 +107,11 @@ namespace FatherCatchmas
 		{	
 			return rightBox;
 		}
+		
+		public void Reset()
+		{
+			
+		}
 	}
 }
 
@@ -141,7 +146,9 @@ public class Santa
 	public void Update(float deltaTime, Vector2 position)
 	{				
 		santaSprite.Position = new Vector2(position.X,position.Y);
-	}	
+	}
+	
+
 }
 
 public class LifeSprite
@@ -149,7 +156,6 @@ public class LifeSprite
 	//Private variables.
 	private static SpriteUV[]	sprite;
 	private static TextureInfo	textureInfo;
-	
 	//Accessors.
 	//public SpriteUV Sprite { get{return sprite;} }
 	
@@ -157,8 +163,8 @@ public class LifeSprite
 	public LifeSprite (Scene scene, int lives)
 	{
 		textureInfo 	= new TextureInfo("/Application/textures/liveSprite.png");
-		
 		sprite	 			= new SpriteUV[lives];
+		
 		for(int i = 0; i < lives; i++)
 		{
 			sprite[i] 				= new SpriteUV(textureInfo);	
@@ -180,6 +186,21 @@ public class LifeSprite
 	{	
 		if(lives<10)
 			scene.RemoveChild(sprite[lives], false);
-	}	
+	}
+	
+	public void Reset(Scene scene)
+	{
+		for(int i = 0; i < 10; i++)
+		{			
+			sprite[i] 				= new SpriteUV(textureInfo);	
+			sprite[i].Quad.S 		= textureInfo.TextureSizef;
+			sprite[i].Position 		= new Vector2(0.0f + (float)(32.0f * i), Director.Instance.GL.Context.GetViewport().Height - 34.0f);
+			
+			//Add to the current scene.
+			scene.AddChild(sprite[i]);
+		}
+	}
+	
+
 
 }

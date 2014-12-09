@@ -37,8 +37,12 @@ namespace FatherCatchmas
 			bool quitGame = false;
 			while (!quitGame) 
 			{
-				if(lives>0)
-					Update ();
+				if(lives<1)
+				{
+					resetGame ();
+					
+				}
+				Update ();
 				
 				Director.Instance.Update();
 				Director.Instance.Render();
@@ -181,6 +185,24 @@ namespace FatherCatchmas
 			}
 			
 			scoreLabel.Text = "Score: " + score;
+		}
+		
+		public static void resetGame()
+		{
+			//Reset score&lives
+			score = 0;
+			lives = 10;
+			
+			livesLabel.Text = "Lives: " + lives;
+			scoreLabel.Text = "Lives: " + lives;
+			
+			player.Reset();
+			life.Reset (gameScene);
+
+			for (int i=0; i<NUMPRESENTS; i++)
+			{
+				presents[i].Reset();	
+			}
 		}
 	}
 }

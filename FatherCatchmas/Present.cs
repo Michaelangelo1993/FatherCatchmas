@@ -29,7 +29,8 @@ namespace FatherCatchmas
 			sprite	 		= new SpriteUV();
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
-			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width - (int)(textureInfo.TextureSizef.X * 1.5)), GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
+			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width - (int)(textureInfo.TextureSizef.X * 1.5)), 
+			                              GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
 			
 			//Add to the current scene.
 			scene.AddChild(sprite);
@@ -74,27 +75,27 @@ namespace FatherCatchmas
 		public void UpdateSpeed()
 		{
 			int currentScore = AppMain.GetScore();
-			if(currentScore<10)
+			if(currentScore<5)
 			{
 				speed = 1.0f;
 			}
-			else if (currentScore<20)
+			else if (currentScore<10)
 			{
 				speed = 1.5f;
 			}
-			else if (currentScore<30)
+			else if (currentScore<15)
 			{
 				speed = 2.0f;
 			}
-			else if (currentScore<40)
+			else if (currentScore<20)
 			{
 				speed = 2.5f;
 			}
-			else if (currentScore<50)
+			else if (currentScore<25)
 			{
 				speed = 3.0f;
 			}
-			else if (currentScore<60)
+			else if (currentScore<30)
 			{
 				speed = 3.5f;
 			}
@@ -126,7 +127,9 @@ namespace FatherCatchmas
 	
 		public void ResetPosition()
 		{
-			sprite.Position = new Vector2(GetRandomNumber (0, Director.Instance.GL.Context.GetViewport().Width), Director.Instance.GL.Context.GetViewport().Height+GetRandomNumber (0, Director.Instance.GL.Context.GetViewport().Height));
+			sprite.Position = new Vector2(GetRandomNumber (0, Director.Instance.GL.Context.GetViewport().Width-32), 
+			                              Director.Instance.GL.Context.GetViewport().Height+GetRandomNumber (0, Director.Instance.GL.Context.GetViewport().Height));
+			
 		}
 		
 		public void SetXPos(float x)
@@ -148,6 +151,12 @@ namespace FatherCatchmas
 		public Bounds2 GetTopBox()
 		{	
 			return topBox;
+		}
+		
+		public void Reset()
+		{
+			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width - (int)(textureInfo.TextureSizef.X * 1.5)), 
+			                              GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
 		}
 	}
 }
