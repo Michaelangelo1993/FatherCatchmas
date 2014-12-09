@@ -37,13 +37,17 @@ namespace FatherCatchmas
 			bool quitGame = false;
 			while (!quitGame) 
 			{
-				if(lives<1)
+				if(lives>0)
 				{
-					resetGame ();
-					
+					Update ();					
 				}
-				Update ();
 				
+				else
+				{
+					var touches = Touch.GetData(0);
+					if(touches.Count > 0)resetGame ();
+				}
+							
 				Director.Instance.Update();
 				Director.Instance.Render();
 				UISystem.Render();
@@ -194,7 +198,7 @@ namespace FatherCatchmas
 			lives = 10;
 			
 			livesLabel.Text = "Lives: " + lives;
-			scoreLabel.Text = "Lives: " + lives;
+			scoreLabel.Text = "Score: " + score;
 			
 			player.Reset();
 			life.Reset (gameScene);
