@@ -96,7 +96,7 @@ namespace FatherCatchmas
 			}
 			else if (currentScore<60)
 			{
-				speed = 3.0f;
+				speed = 3.5f;
 			}
 		}
 		
@@ -126,7 +126,7 @@ namespace FatherCatchmas
 	
 		public void ResetPosition()
 		{
-			sprite.Position = new Vector2(sprite.Position.X - (int)(textureInfo.TextureSizef.X * 1.5), Director.Instance.GL.Context.GetViewport().Height+RandomPosition(1));
+			sprite.Position = new Vector2(GetRandomNumber (0, Director.Instance.GL.Context.GetViewport().Width), Director.Instance.GL.Context.GetViewport().Height+GetRandomNumber (0, Director.Instance.GL.Context.GetViewport().Height));
 		}
 		
 		public void SetXPos(float x)
