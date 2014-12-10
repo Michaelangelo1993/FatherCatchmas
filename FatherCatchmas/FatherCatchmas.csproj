@@ -63,4 +63,7 @@
     <Content Include="textures\santaSprite.png" />
     <Content Include="textures\snow3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="highscore.txt" />
+  </ItemGroup>
 </Project>

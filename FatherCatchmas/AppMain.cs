@@ -10,6 +10,7 @@ using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.HighLevel.UI;
 
+
 namespace FatherCatchmas
 {
 	public class AppMain
@@ -18,6 +19,7 @@ namespace FatherCatchmas
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
 		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label				livesLabel;
+		private static Sce.PlayStation.HighLevel.UI.Label				highscoreLabel;
 		
 		private static Player 		player;
 		private static Santa 		santa;
@@ -27,7 +29,8 @@ namespace FatherCatchmas
 		
 		public static int score;
 		public static int lives;
-		
+	
+		public static int highscore;
 		const int NUMPRESENTS = 9;
 		
 		public static void Main (string[] args)
@@ -82,6 +85,7 @@ namespace FatherCatchmas
 			//Reset score&lives
 			score = 0;
 			lives = 10;
+			highscore = 0;
 			
 			//Set the ui scene.
 			uiScene = new Sce.PlayStation.HighLevel.UI.Scene();
@@ -108,6 +112,16 @@ namespace FatherCatchmas
 				Director.Instance.GL.Context.GetViewport().Height*0.1f - livesLabel.Height/2);
 			livesLabel.Text = "Lives: " + lives;
 			panel.AddChildLast(livesLabel);
+			
+			//Highscore label
+			highscoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
+			highscoreLabel.HorizontalAlignment = HorizontalAlignment.Right;
+			highscoreLabel.VerticalAlignment = VerticalAlignment.Top;
+			highscoreLabel.SetPosition(
+				Director.Instance.GL.Context.GetViewport().Width - highscoreLabel.Width*1.5F,
+				Director.Instance.GL.Context.GetViewport().Height*0.1f - highscoreLabel.Height/2);
+			highscoreLabel.Text = "Highscore: " + highscore;
+			panel.AddChildLast(highscoreLabel);
 			
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
@@ -194,11 +208,14 @@ namespace FatherCatchmas
 		public static void resetGame()
 		{
 			//Reset score&lives
+			if(score > highscore)
+				highscore = score;
 			score = 0;
 			lives = 10;
 			
 			livesLabel.Text = "Lives: " + lives;
 			scoreLabel.Text = "Score: " + score;
+			highscoreLabel.Text = "Highscore: " + highscore;
 			
 			player.Reset();
 			life.Reset (gameScene);
