@@ -17,6 +17,7 @@ namespace FatherCatchmas
 	{
 		private static Sce.PlayStation.HighLevel.GameEngine2D.Scene 	gameScene;
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
+		private static Sce.PlayStation.HighLevel.UI.Label				startLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label				livesLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label				highscoreLabel;
@@ -36,19 +37,25 @@ namespace FatherCatchmas
 		public static void Main (string[] args)
 		{
 			Initialize ();
-
+			bool gameStart = false;
 			bool quitGame = false;
+			Update ();
 			while (!quitGame) 
 			{
-				if(lives>0)
+				if(lives>0 & gameStart)
 				{
 					Update ();					
 				}
 				
 				else
 				{
+					startLabel.Text = "Touch to begin!";
 					var touches = Touch.GetData(0);
-					if(touches.Count > 0)resetGame ();
+					if(touches.Count > 0)
+					{
+						resetGame ();
+						gameStart = true;
+					}
 				}
 							
 				Director.Instance.Update();
@@ -122,6 +129,16 @@ namespace FatherCatchmas
 				Director.Instance.GL.Context.GetViewport().Height*0.1f - highscoreLabel.Height/2);
 			highscoreLabel.Text = "Highscore: " + highscore;
 			panel.AddChildLast(highscoreLabel);
+							
+			//Start label
+			startLabel = new Sce.PlayStation.HighLevel.UI.Label();
+			startLabel.HorizontalAlignment = HorizontalAlignment.Center;
+			startLabel.VerticalAlignment = VerticalAlignment.Middle;
+			startLabel.SetPosition(
+				Director.Instance.GL.Context.GetViewport().Width/2 - startLabel.Width/2,
+				Director.Instance.GL.Context.GetViewport().Height/2);
+			startLabel.Text = "Touch to begin!";
+			panel.AddChildLast(startLabel);
 			
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);
@@ -216,6 +233,7 @@ namespace FatherCatchmas
 			livesLabel.Text = "Lives: " + lives;
 			scoreLabel.Text = "Score: " + score;
 			highscoreLabel.Text = "Highscore: " + highscore;
+			startLabel.Text = "";
 			
 			player.Reset();
 			life.Reset (gameScene);
