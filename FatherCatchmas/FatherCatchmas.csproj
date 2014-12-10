@@ -38,7 +38,11 @@
     <Reference Include="Sce.PlayStation.HighLevel.UI" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppMain.cs" />
+    <Compile Include="AppMain.cs">
+      <DeployService-Deploy>true</DeployService-Deploy>
+      <DeployService-HasPathReferences>true</DeployService-HasPathReferences>
+      <DeployService-UseProjectRelativePath>true</DeployService-UseProjectRelativePath>
+    </Compile>
     <Compile Include="Background.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Present.cs" />
@@ -53,6 +57,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Sce\Sce.Psm.CSharp.targets" />
   <ItemGroup>
     <Folder Include="textures\" />
+    <Folder Include="FatherCatchmas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\background.png" />
