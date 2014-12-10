@@ -39,22 +39,39 @@ namespace FatherCatchmas
 			Initialize ();
 			bool gameStart = false;
 			bool quitGame = false;
+			
 			Update ();
+			
 			while (!quitGame) 
 			{
-				if(lives>0 & gameStart)
+				if(gameStart)
 				{
-					Update ();					
-				}
 				
-				else
+					if(lives>0)
+					{
+						Update ();					
+					}
+					
+					else
+					{
+						startLabel.Text = "Touch to try again!";
+						var touches = Touch.GetData(0);
+						if(touches.Count > 0)
+						{
+							resetGame();						
+						}
+					}
+					
+				}
+				else 
 				{
 					startLabel.Text = "Touch to begin!";
+					
 					var touches = Touch.GetData(0);
 					if(touches.Count > 0)
 					{
-						resetGame ();
 						gameStart = true;
+						startLabel.Text = "";
 					}
 				}
 							

@@ -1,12 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="FatherCatchmas\Background.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FatherCatchmas\AppMain.cs">
     <Files>
       <File FileName="FatherCatchmas\app.xml" Line="11" Column="1" />
-      <File FileName="FatherCatchmas\AppMain.cs" Line="94" Column="17" />
-      <File FileName="FatherCatchmas\Background.cs" Line="71" Column="4" />
-      <File FileName="FatherCatchmas\Player.cs" Line="116" Column="39" />
-      <File FileName="FatherCatchmas\Present.cs" Line="17" Column="3" />
+      <File FileName="FatherCatchmas\AppMain.cs" Line="57" Column="44" />
+      <File FileName="FatherCatchmas\Background.cs" Line="27" Column="80" />
+      <File FileName="FatherCatchmas\Player.cs" Line="195" Column="31" />
+      <File FileName="FatherCatchmas\Present.cs" Line="71" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

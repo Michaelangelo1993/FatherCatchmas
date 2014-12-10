@@ -192,10 +192,6 @@ public class LifeSprite
 	{
 		for(int i = 0; i < 10; i++)
 		{			
-			sprite[i] 				= new SpriteUV(textureInfo);	
-			sprite[i].Quad.S 		= textureInfo.TextureSizef;
-			sprite[i].Position 		= new Vector2(0.0f + (float)(32.0f * i), Director.Instance.GL.Context.GetViewport().Height - 34.0f);
-			
 			//Add to the current scene.
 			scene.AddChild(sprite[i]);
 		}
