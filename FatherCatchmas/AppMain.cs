@@ -77,6 +77,9 @@ namespace FatherCatchmas
 					{
 						gameStart = true;
 						startLabel.Text = "";
+						Bgm christmasTune = new Bgm("/Application/sounds/christmasTune.mp3");
+						mp3Player = christmasTune.CreatePlayer();
+						mp3Player.Play();
 					}
 				}
 							
@@ -113,7 +116,7 @@ namespace FatherCatchmas
 			
 			//Reset score&lives
 			score = 0;
-			lives = 10;
+			lives = 5;
 			highscore = 0;
 			
 			//Set the ui scene.
@@ -153,9 +156,7 @@ namespace FatherCatchmas
 			panel.AddChildLast(startLabel);
 			
 			uiScene.RootWidget.AddChildLast(panel);
-			UISystem.SetScene(uiScene);
-			
-			
+			UISystem.SetScene(uiScene);			
 			
 			//Create the background.
 			background = new Background(gameScene);
@@ -179,9 +180,7 @@ namespace FatherCatchmas
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
 			
-			Bgm christmasTune = new Bgm("/Application/sounds/christmasTune.mp3");
-			mp3Player = christmasTune.CreatePlayer();
-			mp3Player.Play();
+			
 		}
 
 		public static void Update ()

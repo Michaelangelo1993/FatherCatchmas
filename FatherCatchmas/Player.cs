@@ -156,6 +156,7 @@ public class LifeSprite
 	//Private variables.
 	private static SpriteUV[]	sprite;
 	private static TextureInfo	textureInfo;
+	private int lives;
 	//Accessors.
 	//public SpriteUV Sprite { get{return sprite;} }
 	
@@ -164,7 +165,7 @@ public class LifeSprite
 	{
 		textureInfo 	= new TextureInfo("/Application/textures/liveSprite.png");
 		sprite	 		= new SpriteUV[lives];
-		
+		this.lives = lives;
 		for(int i = 0; i < lives; i++)
 		{
 			sprite[i] 				= new SpriteUV(textureInfo);	
@@ -184,13 +185,13 @@ public class LifeSprite
 	
 	public void Update(float deltaTime, Scene scene, int lives)
 	{	
-		if(lives<10) // remove a life sprite from the scene
+		if(lives<this.lives) // remove a life sprite from the scene
 			scene.RemoveChild(sprite[lives], false);
 	}
 	
 	public void Reset(Scene scene)
 	{
-		for(int i = 0; i < 10; i++)
+		for(int i = 0; i < this.lives; i++)
 		{			
 			//Add to the current scene.
 			scene.AddChild(sprite[i]);
