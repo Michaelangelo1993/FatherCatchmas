@@ -44,41 +44,44 @@ namespace FatherCatchmas
 			bool gameStart = false;
 			bool quitGame = false;
 			
+			GamePadData data = GamePad.GetData(0);
+			
 			Update ();
 			
 			while (!quitGame) 
 			{
 				if(gameStart)
 				{	
-					
-				
 					if(lives>0)
 					{
 						Update ();					
 					}
-					
 					else
 					{
-						
-						startLabel.Text = "Touch to try again!";
+						startLabel.Text = "Press X to try again!";
+					
+						if (Input2.GamePad0.Cross.Down)
+						    resetGame();
+						/*
 						var touches = Touch.GetData(0);
 						if(touches.Count > 0)
 						{
-							resetGame();						
-						}
+													
+						}*/
 					}
-					
 				}
 				else 
 				{
-					startLabel.Text = "Touch to begin!";
+					startLabel.Text = "Press X to begin!";
 					
 					var touches = Touch.GetData(0);
-					if(touches.Count > 0)
+					if (Input2.GamePad0.Cross.Down)
 					{
+						
 						gameStart = true;
 						startLabel.Text = "";
-						Bgm christmasTune = new Bgm("/Application/sounds/christmasTune.mp3");
+						
+						Bgm christmasTune = new Bgm("/Application/sounds/letItSnow.mp3");
 						mp3Player = christmasTune.CreatePlayer();
 						mp3Player.Play();
 					}
@@ -206,6 +209,7 @@ namespace FatherCatchmas
 				isColliding(present);
 			}
 			
+			//Makes sure 2 presents dont fall at the same time
 			for (int i=0; i<NUMPRESENTS; i++)
 			{
 				if(i == 0)
@@ -270,9 +274,10 @@ namespace FatherCatchmas
 			{
 				presents[i].Reset();	
 			}
+			
 			mp3Player.Stop();
-							mp3Player.Dispose();
-			Bgm christmasTune = new Bgm("/Application/sounds/christmasTune.mp3");
+			mp3Player.Dispose();
+			Bgm christmasTune = new Bgm("/Application/sounds/letItSnow.mp3");
 			mp3Player = christmasTune.CreatePlayer();
 			mp3Player.Play();
 		}

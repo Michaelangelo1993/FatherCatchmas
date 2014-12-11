@@ -69,6 +69,8 @@
     <Content Include="textures\santaSprite.png" />
     <Content Include="textures\snow3.png" />
     <Content Include="sounds\christmasTune.mp3" />
+    <Content Include="sounds\hohoho.mp3" />
+    <Content Include="sounds\letItSnow.mp3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="highscore.txt" />
