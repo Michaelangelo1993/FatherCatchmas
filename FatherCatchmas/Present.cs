@@ -81,7 +81,11 @@ namespace FatherCatchmas
 		public void UpdateSpeed()
 		{
 			int currentScore = AppMain.GetScore();
-			if(currentScore<5)
+			
+			speed = 0.1f * (10 + currentScore);
+			
+					
+			/*if(currentScore<5)
 			{
 				speed = 1.0f;
 			}
@@ -104,7 +108,7 @@ namespace FatherCatchmas
 			else if (currentScore<30)
 			{
 				speed = 3.5f;
-			}
+			}*/
 		}
 		
 		//Function to get random number

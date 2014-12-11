@@ -59,8 +59,6 @@ namespace FatherCatchmas
 					
 					else
 					{
-						mp3Player.Stop();
-						mp3Player.Dispose();
 						
 						startLabel.Text = "Touch to try again!";
 						var touches = Touch.GetData(0);
@@ -272,7 +270,8 @@ namespace FatherCatchmas
 			{
 				presents[i].Reset();	
 			}
-
+			mp3Player.Stop();
+							mp3Player.Dispose();
 			Bgm christmasTune = new Bgm("/Application/sounds/christmasTune.mp3");
 			mp3Player = christmasTune.CreatePlayer();
 			mp3Player.Play();
