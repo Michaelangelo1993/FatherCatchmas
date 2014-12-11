@@ -16,7 +16,7 @@ namespace FatherCatchmas
 		private TextureInfo	textureInfo;
 		
 		private static Vector2		min, max;
-		private static Bounds2		box, topBox;
+		private static Bounds2		box, topBox, yBox;
 		
 		private float speed = 2.0f;
 		
@@ -67,7 +67,15 @@ namespace FatherCatchmas
 			max.X		= sprite.Position.X + (textureInfo.TextureSizef.X);
 			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
 			topBox.Min 	= min;			
-			topBox.Max 	= max;	
+			topBox.Max 	= max;
+			
+			//Assign bounding box values - bigger box full width of viewport
+			min.X		= 0.0f;
+			min.Y		= sprite.Position.Y - 30.0f;
+			max.X		= Director.Instance.GL.Context.GetViewport().Width;
+			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
+			yBox.Min 	= min;			
+			yBox.Max 	= max;
 			
 			UpdateSpeed ();
 		}
@@ -112,6 +120,14 @@ namespace FatherCatchmas
     		}
 		}
 		
+		public void CheckPresentYValue(Present present)
+		{
+			if (this.GetYBox().Overlaps(present.GetYBox()))
+			{
+				this.ResetPosition();
+			}
+		}
+		
 		private float RandomPosition(int seed)
 		{
 			//Create a random float
@@ -151,6 +167,11 @@ namespace FatherCatchmas
 		public Bounds2 GetTopBox()
 		{	
 			return topBox;
+		}
+		
+		public Bounds2 GetYBox()
+		{	
+			return yBox;
 		}
 		
 		public void Reset()

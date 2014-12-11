@@ -19,7 +19,6 @@ namespace FatherCatchmas
 		private static Sce.PlayStation.HighLevel.UI.Scene 				uiScene;
 		private static Sce.PlayStation.HighLevel.UI.Label				startLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
-		private static Sce.PlayStation.HighLevel.UI.Label				livesLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label				highscoreLabel;
 		
 		private static Player 		player;
@@ -127,16 +126,6 @@ namespace FatherCatchmas
 			scoreLabel.Text = "Score: " + score;
 			panel.AddChildLast(scoreLabel);
 			
-			//Lives label
-			livesLabel = new Sce.PlayStation.HighLevel.UI.Label();
-			livesLabel.HorizontalAlignment = HorizontalAlignment.Right;
-			livesLabel.VerticalAlignment = VerticalAlignment.Top;
-			livesLabel.SetPosition(
-				Director.Instance.GL.Context.GetViewport().Width/4 - livesLabel.Width/2,
-				Director.Instance.GL.Context.GetViewport().Height*0.1f - livesLabel.Height/2);
-			livesLabel.Text = "Lives: " + lives;
-			panel.AddChildLast(livesLabel);
-			
 			//Highscore label
 			highscoreLabel = new Sce.PlayStation.HighLevel.UI.Label();
 			highscoreLabel.HorizontalAlignment = HorizontalAlignment.Right;
@@ -205,7 +194,7 @@ namespace FatherCatchmas
 			{
 				present.Update(0.0f);
 				isColliding(present);
-			}	
+			}
 			
 			player.Update(0.0f, x);
 			santa.Update(0.0f, player.GetPos());
@@ -215,7 +204,6 @@ namespace FatherCatchmas
 		public static void UpdateLives()
 		{
 			lives--;
-			livesLabel.Text = "Lives: " + lives;
 		}
 		
 		public static int GetScore()
@@ -247,7 +235,6 @@ namespace FatherCatchmas
 			score = 0;
 			lives = 10;
 			
-			livesLabel.Text = "Lives: " + lives;
 			scoreLabel.Text = "Score: " + score;
 			highscoreLabel.Text = "Highscore: " + highscore;
 			startLabel.Text = "";
