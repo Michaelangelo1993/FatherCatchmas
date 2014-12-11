@@ -22,10 +22,11 @@ namespace FatherCatchmas
 		//Public functions.
 		public Background (Scene scene)
 		{
-			sprite	= new SpriteUV();
-			
+			//The basic background
+			sprite	= new SpriteUV();			
 			textureInfo  	= new TextureInfo("/Application/textures/backgroundnosnow.png");
 			
+			//Create the scrolling snow sprites
 			snowSprite	= new SpriteUV();
 			snowSprite2 = new SpriteUV();
 			
@@ -69,6 +70,7 @@ namespace FatherCatchmas
 			snowSprite.Position = new Vector2(snowSprite.Position.X, snowSprite.Position.Y-5.0f);
 			snowSprite2.Position = new Vector2(snowSprite2.Position.X, snowSprite2.Position.Y-5.0f);
 			
+			//Resets the position once off screen
 			if(snowSprite.Position.Y < -height2)
 				snowSprite.Position = new Vector2(0.0f, height2);
 			if(snowSprite2.Position.Y < -height2)

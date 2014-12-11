@@ -55,7 +55,8 @@ namespace FatherCatchmas
 			{
 				sackSprite.Position = new Vector2(Director.Instance.GL.Context.GetViewport().Width - textureInfoSack.TextureSizef.X, 0.0f);
 			}
-			
+						
+			//Storing Bounds2 box data for collisions
 			min.X			= sackSprite.Position.X;
 			min.Y			= sackSprite.Position.Y;
 			max.X			= sackSprite.Position.X + (textureInfoSack.TextureSizef.X);
@@ -166,6 +167,7 @@ public class LifeSprite
 		textureInfo 	= new TextureInfo("/Application/textures/liveSprite.png");
 		sprite	 		= new SpriteUV[lives];
 		this.lives = lives;
+		//Create a life sprite for each of the players lives
 		for(int i = 0; i < lives; i++)
 		{
 			sprite[i] 				= new SpriteUV(textureInfo);	
@@ -185,7 +187,8 @@ public class LifeSprite
 	
 	public void Update(float deltaTime, Scene scene, int lives)
 	{	
-		if(lives<this.lives) // remove a life sprite from the scene
+		// remove a life sprite from the scene
+		if(lives<this.lives) 
 			scene.RemoveChild(sprite[lives], false);
 	}
 	
@@ -193,7 +196,7 @@ public class LifeSprite
 	{
 		for(int i = 0; i < this.lives; i++)
 		{			
-			//Add to the current scene.
+			//Reset the life sprites
 			scene.AddChild(sprite[i]);
 		}
 	}

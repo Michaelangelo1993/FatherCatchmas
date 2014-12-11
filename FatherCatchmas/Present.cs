@@ -175,6 +175,7 @@ namespace FatherCatchmas
 		
 		public void Reset()
 		{
+			//resets the present positions so that they're above the top of the screen
 			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width - (int)(textureInfo.TextureSizef.X * 1.5)),
 			                              Director.Instance.GL.Context.GetViewport().Height + (seed * gap));
 		}

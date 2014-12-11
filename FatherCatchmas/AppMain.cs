@@ -84,6 +84,7 @@ namespace FatherCatchmas
 						Bgm christmasTune = new Bgm("/Application/sounds/letItSnow.mp3");
 						mp3Player = christmasTune.CreatePlayer();
 						mp3Player.Play();
+						mp3Player.Volume = 0.025f;
 					}
 				}
 							
@@ -159,6 +160,7 @@ namespace FatherCatchmas
 			startLabel.Text = "Touch to begin!";
 			panel.AddChildLast(startLabel);
 			
+			//Add panel
 			uiScene.RootWidget.AddChildLast(panel);
 			UISystem.SetScene(uiScene);			
 			
@@ -224,6 +226,7 @@ namespace FatherCatchmas
 				}
 			}
 			
+			//Update the game objects
 			player.Update(0.0f, x);
 			santa.Update(0.0f, player.GetPos());
 			life.Update(0.0f, gameScene, lives);
@@ -241,6 +244,7 @@ namespace FatherCatchmas
 		
 		public static void isColliding(Present present)
 		{
+			//Checks if the player and the presents are colliding
 			if (player.GetBox().Overlaps(present.GetBox()))
 			{
 				present.SetXPos(player.GetXPos());
@@ -252,6 +256,7 @@ namespace FatherCatchmas
 				present.ResetPosition();
 			}
 			
+			//Update score label
 			scoreLabel.Text = "Score: " + score;
 		}
 		
@@ -263,10 +268,12 @@ namespace FatherCatchmas
 			score = 0;
 			lives = 10;
 			
+			//Update labels
 			scoreLabel.Text = "Score: " + score;
 			highscoreLabel.Text = "Highscore: " + highscore;
 			startLabel.Text = "";
 			
+			//Run reset methods
 			player.Reset();
 			life.Reset (gameScene);
 
@@ -275,11 +282,13 @@ namespace FatherCatchmas
 				presents[i].Reset();	
 			}
 			
+			//Music
 			mp3Player.Stop();
 			mp3Player.Dispose();
 			Bgm christmasTune = new Bgm("/Application/sounds/letItSnow.mp3");
 			mp3Player = christmasTune.CreatePlayer();
 			mp3Player.Play();
+			mp3Player.Volume = 0.025f;
 		}
 	}
 }
