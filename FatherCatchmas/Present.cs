@@ -47,7 +47,7 @@ namespace FatherCatchmas
 			sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-speed);
 			
 			//Reset the position once the ground is hit
-			if(sprite.Position.Y <0)
+			if(sprite.Position.Y < 0 - sprite.TextureInfo.TextureSizef.Y)
 			{
 				ResetPosition();
 				AppMain.UpdateLives();
