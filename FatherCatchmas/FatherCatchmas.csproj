@@ -58,6 +58,7 @@
   <ItemGroup>
     <Folder Include="textures\" />
     <Folder Include="FatherCatchmas\" />
+    <Folder Include="sounds\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="textures\background.png" />
@@ -67,6 +68,7 @@
     <Content Include="textures\sack.png" />
     <Content Include="textures\santaSprite.png" />
     <Content Include="textures\snow3.png" />
+    <Content Include="sounds\christmasTune.mp3" />
   </ItemGroup>
   <ItemGroup>
     <None Include="highscore.txt" />

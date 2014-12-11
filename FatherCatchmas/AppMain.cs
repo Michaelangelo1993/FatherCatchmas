@@ -9,6 +9,8 @@ using Sce.PlayStation.Core.Input;
 using Sce.PlayStation.HighLevel.GameEngine2D;
 using Sce.PlayStation.HighLevel.GameEngine2D.Base;
 using Sce.PlayStation.HighLevel.UI;
+using Sce.PlayStation.Core.Audio;
+using System.Threading;
 
 
 namespace FatherCatchmas
@@ -20,6 +22,9 @@ namespace FatherCatchmas
 		private static Sce.PlayStation.HighLevel.UI.Label				startLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label				scoreLabel;
 		private static Sce.PlayStation.HighLevel.UI.Label				highscoreLabel;
+		
+		private static BgmPlayer mp3Player;
+		private static Bgm christmasTune;
 		
 		private static Player 		player;
 		private static Santa 		santa;
@@ -44,7 +49,8 @@ namespace FatherCatchmas
 			while (!quitGame) 
 			{
 				if(gameStart)
-				{
+				{	
+					
 				
 					if(lives>0)
 					{
@@ -172,6 +178,10 @@ namespace FatherCatchmas
 			
 			//Run the scene.
 			Director.Instance.RunWithScene(gameScene, true);
+			
+			Bgm christmasTune = new Bgm("/Application/sounds/christmasTune.mp3");
+			mp3Player = christmasTune.CreatePlayer();
+			mp3Player.Play();
 		}
 
 		public static void Update ()
@@ -260,6 +270,12 @@ namespace FatherCatchmas
 			{
 				presents[i].Reset();	
 			}
+			
+			mp3Player.Stop();
+			mp3Player.Dispose();
+			Bgm christmasTune = new Bgm("/Application/sounds/christmasTune.mp3");
+			mp3Player = christmasTune.CreatePlayer();
+			mp3Player.Play();
 		}
 	}
 }

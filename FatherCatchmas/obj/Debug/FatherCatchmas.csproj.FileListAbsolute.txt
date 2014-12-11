@@ -198,3 +198,5 @@ C:\Users\Thomas\Desktop\FatherCatchmas\FatherCatchmas\obj\Debug\shaders\shaders\
 C:\Users\Thomas\Desktop\FatherCatchmas\FatherCatchmas\obj\Debug\convertedpdb\app.exe.mdb
 C:\Users\Thomas\Desktop\FatherCatchmas\FatherCatchmas\obj\Debug\app.exe
 C:\Users\Thomas\Desktop\FatherCatchmas\FatherCatchmas\obj\Debug\app.pdb
+A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-unsigned\Application\sounds\christmasTune.mp3
+A:\Documents\FatherCatchmas\FatherCatchmas\bin\Debug\FatherCatchmas-signed\Application\sounds\christmasTune.mp3
