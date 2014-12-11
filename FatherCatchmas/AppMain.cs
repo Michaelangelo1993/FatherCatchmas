@@ -196,6 +196,20 @@ namespace FatherCatchmas
 				isColliding(present);
 			}
 			
+			for (int i=0; i<NUMPRESENTS; i++)
+			{
+				if(i == 0)
+				{
+					if(presents[i].GetYPos() - presents[NUMPRESENTS - 1].GetYPos() >  75)
+						presents[i].DropPresent();
+				}
+				else
+				{
+					if(presents[i].GetYPos() - presents[i-1].GetYPos() >  75)
+						presents[i].DropPresent();
+				}
+			}
+			
 			player.Update(0.0f, x);
 			santa.Update(0.0f, player.GetPos());
 			life.Update(0.0f, gameScene, lives);

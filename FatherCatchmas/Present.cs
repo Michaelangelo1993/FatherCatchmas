@@ -16,13 +16,18 @@ namespace FatherCatchmas
 		private TextureInfo	textureInfo;
 		
 		private static Vector2		min, max;
-		private static Bounds2		box, topBox, yBox;
+		private static Bounds2		box, topBox;
 		
-		private float speed = 2.0f;
+		private float 	speed = 2.0f;
+		private int 	seed;
+		private int 	gap = 75;
+		private bool	drop;
 		
 		//Public functions.
 		public Present (Scene scene, int seed)
 		{
+			this.seed = seed;
+			drop = true;
 			textureInfo  = new TextureInfo("/Application/textures/present.png");
 			
 			//Create sprite
@@ -30,7 +35,7 @@ namespace FatherCatchmas
 			sprite 			= new SpriteUV(textureInfo);	
 			sprite.Quad.S 	= textureInfo.TextureSizef;
 			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width - (int)(textureInfo.TextureSizef.X * 1.5)), 
-			                              GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
+			                              Director.Instance.GL.Context.GetViewport().Height + (seed * gap));
 			
 			//Add to the current scene.
 			scene.AddChild(sprite);
@@ -44,7 +49,8 @@ namespace FatherCatchmas
 		public void Update(float deltaTime)
 		{			
 			//Make the presents fall
-			sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-speed);
+			if(drop)
+				sprite.Position = new Vector2(sprite.Position.X, sprite.Position.Y-speed);
 			
 			//Reset the position once the ground is hit
 			if(sprite.Position.Y < 0 - sprite.TextureInfo.TextureSizef.Y)
@@ -68,14 +74,6 @@ namespace FatherCatchmas
 			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
 			topBox.Min 	= min;			
 			topBox.Max 	= max;
-			
-			//Assign bounding box values - bigger box full width of viewport
-			min.X		= 0.0f;
-			min.Y		= sprite.Position.Y - 30.0f;
-			max.X		= Director.Instance.GL.Context.GetViewport().Width;
-			max.Y		= sprite.Position.Y + (textureInfo.TextureSizef.Y);
-			yBox.Min 	= min;			
-			yBox.Max 	= max;
 			
 			UpdateSpeed ();
 		}
@@ -120,14 +118,6 @@ namespace FatherCatchmas
     		}
 		}
 		
-		public void CheckPresentYValue(Present present)
-		{
-			if (this.GetYBox().Overlaps(present.GetYBox()))
-			{
-				this.ResetPosition();
-			}
-		}
-		
 		private float RandomPosition(int seed)
 		{
 			//Create a random float
@@ -144,8 +134,8 @@ namespace FatherCatchmas
 		public void ResetPosition()
 		{
 			sprite.Position = new Vector2(GetRandomNumber (0, Director.Instance.GL.Context.GetViewport().Width-32), 
-			                              Director.Instance.GL.Context.GetViewport().Height+GetRandomNumber (0, Director.Instance.GL.Context.GetViewport().Height));
-			
+			                              Director.Instance.GL.Context.GetViewport().Height + (seed * gap));
+			drop = false;
 		}
 		
 		public void SetXPos(float x)
@@ -159,6 +149,11 @@ namespace FatherCatchmas
 			return sprite.Position.X;
 		}
 		
+		public float GetYPos()
+		{
+			return sprite.Position.Y;
+		}
+		
 		public Bounds2 GetBox()
 		{	
 			return box;
@@ -169,15 +164,15 @@ namespace FatherCatchmas
 			return topBox;
 		}
 		
-		public Bounds2 GetYBox()
-		{	
-			return yBox;
+		public void DropPresent()
+		{
+			drop = true;
 		}
 		
 		public void Reset()
 		{
-			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width - (int)(textureInfo.TextureSizef.X * 1.5)), 
-			                              GetRandomNumber (Director.Instance.GL.Context.GetViewport().Height, Director.Instance.GL.Context.GetViewport().Height*2));
+			sprite.Position = new Vector2(GetRandomNumber(0, Director.Instance.GL.Context.GetViewport().Width - (int)(textureInfo.TextureSizef.X * 1.5)),
+			                              Director.Instance.GL.Context.GetViewport().Height + (seed * gap));
 		}
 	}
 }
