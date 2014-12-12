@@ -84,7 +84,7 @@ namespace FatherCatchmas
 						Bgm christmasTune = new Bgm("/Application/sounds/letItSnow.mp3");
 						mp3Player = christmasTune.CreatePlayer();
 						mp3Player.Play();
-						mp3Player.Volume = 0.025f;
+						//mp3Player.Volume = 0.025f;
 					}
 				}
 							
@@ -288,7 +288,7 @@ namespace FatherCatchmas
 			Bgm christmasTune = new Bgm("/Application/sounds/letItSnow.mp3");
 			mp3Player = christmasTune.CreatePlayer();
 			mp3Player.Play();
-			mp3Player.Volume = 0.025f;
+			//mp3Player.Volume = 0.025f;
 		}
 	}
 }
