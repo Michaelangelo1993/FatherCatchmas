@@ -55,8 +55,9 @@ namespace FatherCatchmas
 			//Reset the position once the ground is hit
 			if(sprite.Position.Y < 0 - sprite.TextureInfo.TextureSizef.Y)
 			{
-				ResetPosition();
 				AppMain.UpdateLives();
+				ResetPosition();
+				
 			}
 		
 			//Assign bounding box values - size of the present

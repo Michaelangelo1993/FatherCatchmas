@@ -267,7 +267,7 @@ namespace FatherCatchmas
 			if(score > highscore)
 				highscore = score;
 			score = 0;
-			lives = 10;
+			lives = 5;
 			
 			//Update labels
 			scoreLabel.Text = "Score: " + score;
