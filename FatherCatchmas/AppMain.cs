@@ -58,6 +58,7 @@ namespace FatherCatchmas
 					}
 					else
 					{
+						mp3Player.Stop();
 						startLabel.Text = "Press X to try again!";
 					
 						if (Input2.GamePad0.Cross.Down)
@@ -283,10 +284,7 @@ namespace FatherCatchmas
 			}
 			
 			//Music
-			mp3Player.Stop();
-			mp3Player.Dispose();
-			Bgm christmasTune = new Bgm("/Application/sounds/letItSnow.mp3");
-			mp3Player = christmasTune.CreatePlayer();
+			
 			mp3Player.Play();
 			//mp3Player.Volume = 0.025f;
 		}
